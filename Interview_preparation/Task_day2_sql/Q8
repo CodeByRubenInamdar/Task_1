@@ -1,0 +1,5 @@
+Q8.Write a query to find the 3rd highest salary from a table without top or limit keyword.
+
+
+SELECT MIN(salary) AS ThirdHighestSalary
+FROM (SELECT DISTINCT salary FROM EmployeeDetails ORDER BY salary DESC OFFSET 2 ROWS) AS Salaries;

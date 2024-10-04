@@ -1,0 +1,36 @@
+Q1. SQL Query to fetch records that are present in one table but not in another table.
+
+
+mysql> select * from emp;
++----+-------+
+| id | name |
++----+-------+
+| 1 | Ram |
+| 2 | Sham |
+| 3 | Rahul |
+| 4 | Mahi |
+| 5 | Ruben |
+| 6 | Mayur |
++----+-------+
+6 rows in set (0.00 sec)
+mysql> select * from dept;
++----+----------+
+| id | dept |
++----+----------+
+| 1 | IT |
+| 2 | Sales |
+| 3 | HR |
+| 4 | Mangment |
++----+----------+
+4 rows in set (0.00 sec)
+mysql> select e.id, e.name from emp e
+-> left join dept d on e.id = d.id
+-> where d.id is null;
++----+-------+
+| id | name |
++----+-------+
+| 5 | Ruben |
+| 6 | Mayur |
++----+-------+
+
+_

@@ -1,0 +1,5 @@
+Q7. Write an SQL query to fetch only odd rows from the table.
+
+SELECT * FROM ( SELECT *, ROW_NUMBER() OVER (ORDER BY id) AS row_num
+FROM EmployeeDetails AS numbered_rows
+WHERE row_num % 2 = 1;

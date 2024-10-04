@@ -1,0 +1,17 @@
+Q4 Write an SQL query to fetch a project-wise count of employees.
+Fetch employee names and salaries even if the salary value is not present for the employee.
+
+
+mysql> SELECT ed.name, es.salary
+-> FROM EmployeeDetails ed
+-> LEFT JOIN EmployeeSalary es ON ed.id = es.employee_id;
++-------+----------+
+| name | salary |
++-------+----------+
+| Ram | 60000.00 |
+| Sham | 65000.00 |
+| Rahul | 70000.00 |
+| Mahi | 72000.00 |
+| Ruben | 68000.00 |
+| Mayur | 59000.00 |
++-------+----------++-------+----------++-------+----------++-------+----------++-------+----------

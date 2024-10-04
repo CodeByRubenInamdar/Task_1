@@ -1,0 +1,6 @@
+Q6. Write an SQL query to fetch duplicate records from EmployeeDetails.
+
+
+SELECT * FROM EmployeeDetails
+WHERE name IN (SELECT name FROM EmployeeDetails GROUP BY name
+HAVING COUNT(*) > 1 );

@@ -1,0 +1,35 @@
+Q3. SQL query to fetch all the Employees from EmployeeDetails who joined in the Year 2020.
+Fetch all employees from EmployeeDetails who have a salary record in EmployeeSalary.
+
+mysql> CREATE TABLE EmployeeDetails (
+-> id INT PRIMARY KEY AUTO_INCREMENT,
+
+mysql> SELECT *
+-> FROM EmployeeDetails
+-> WHERE YEAR(joining_date) = 2020;
+
++----+-------+--------------+---------------+-------------------+--------------+------------------------+
+| id | name | joining_date | department_id | email | phone_number | address |
++----+-------+--------------+---------------+-------------------+--------------+------------------------+
+| 1 | Ram | 2020-03-15 | 1 | ram@example.com | 1234567890 | 123 Ram Street, City |
+| 2 | Sham | 2020-06-20 | 2 | sham@example.com | 2345678901 | 456 Sham Street, City |
+| 4 | Mahi | 2020-12-01 | 3 | mahi@example.com | 4567890123 | 101 Mahi Street, City |
+| 6 | Mayur | 2020-05-15 | 1 | mayur@example.com | 6789012345 | 303 Mayur Street, City |
++----+-------+--------------+---------------+-------------------+--------------+------------------------+
+4 rows in set (0.01 sec)
+
+
+
+mysql> SELECT ed.*
+-> FROM EmployeeDetails ed
+-> INNER JOIN EmployeeSalary es ON ed.id = es.employee_id;
++----+-------+--------------+---------------+-------------------+--------------+------------------------+
+| id | name | joining_date | department_id | email | phone_number | address |
++----+-------+--------------+---------------+-------------------+--------------+------------------------+
+| 1 | Ram | 2020-03-15 | 1 | ram@example.com | 1234567890 | 123 Ram Street, City |
+| 2 | Sham | 2020-06-20 | 2 | sham@example.com | 2345678901 | 456 Sham Street, City |
+| 3 | Rahul | 2019-08-30 | 1 | rahul@example.com | 3456789012 | 789 Rahul Street, City |
+| 4 | Mahi | 2020-12-01 | 3 | mahi@example.com | 4567890123 | 101 Mahi Street, City |
+| 5 | Ruben | 2021-01-10 | 2 | ruben@example.com | 5678901234 | 202 Ruben Street, City |
+| 6 | Mayur | 2020-05-15 | 1 | mayur@example.com | 6789012345 | 303 Mayur Street, City |
++----+-------+--------------+---------------+-------------------+--------------+------------------------+

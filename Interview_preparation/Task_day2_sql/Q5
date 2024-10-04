@@ -1,0 +1,11 @@
+Q5. Write an SQL query to fetch all the Employees who are also managers
+
+mysql> SELECT DISTINCT ed.*
+-> FROM EmployeeDetails ed
+-> JOIN EmployeeDetails m ON ed.id = m.manager_id;
++----+------+--------------+---------------+-----------------+--------------+----------------------+----
+| id | name | joining_date | department_id | email | phone_number | address | manager_id |
++----+------+--------------+---------------+-----------------+--------------+----------------------+----
+| 1 | Ram | 2020-03-15 | 1 | ram@example.com | 1234567890 | 123 Ram Street, City | NULL |
++----+------+--------------+---------------+-----------------+--------------+----------------------+----
+
